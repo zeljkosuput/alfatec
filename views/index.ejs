@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Probni barovi</title>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i" rel="stylesheet">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Font awesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+      
+        <!-- Sidebar -->
+        <nav id="sidebar" class="active d-flex flex-column navbar-dark bg-dark justify-content-between align-items-center">
+            <!-- Sidebar Header -->
+            <img id="logo" src="logo2.png">
+
+            <div>            
+               <!-- Prvi meni -->
+                <div class="meni">
+                    <div class="meni-header bg-secondary text-white d-flex align-items-center pl-4">
+                        <div><i class="fas fa-download"></i> Izvoz baze</div>
+                    </div>
+                    <ul class="list-unstyled text-secondary">
+                        <li><h5>Zagreb</h5></li>
+                        <li class="d-flex justify-content-between"><h6 class="flex-grow-1">Excel datoteka</h6><i class="fas fa-file-excel"></i></li>
+                        <li class="d-flex justify-content-between"><h6 class="flex-grow-1">PDF datoteka</h6><i class="fas fa-file-pdf"></i></li>
+                    </ul>
+                </div>     
+                <!-- Drugi meni -->
+                <div class="meni">
+                    <div class="meni-header bg-info text-white d-flex align-items-center pl-4">
+                        <div><i class="fas fa-question-circle"></i> Podaci o uređaju</div>
+                    </div>
+                    <ul class="list-unstyled text-secondary">
+                        <li><h6>Odaberite uređaj kako bi ste dobili uvid u detaljne informacije</h6></li>
+                    </ul>
+                </div>  
+                <!-- Treći meni -->
+                <div class="meni">
+                    <div class="meni-header bg-secondary text-white d-flex align-items-center pl-4">
+                        <div><i class="fas fa-sort-amount-down"></i> Grad Zagreb</div>
+                    </div>
+                    <ul class="list-unstyled text-secondary">
+                        <!-- <li><h5>Broj uređaja</h5></li> -->
+                        <li class="d-flex justify-content-between align-items-center">
+                            <h6>Fiksni</h6>
+                            <div class="d-flex justify-content-between align-items-center w-50">
+                                <h6 class="ml-4"><i class="fas fa-angle-double-right"></i> 3</h6>
+                                <h5 class="prekidac"><i class="fas fa-toggle-on" onclick="togglePrikaz('fixni');"></i></h5>
+                            </div>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <h6>Mobilni</h6>
+                            <div class="d-flex justify-content-between align-items-center w-50">
+                                <h6 class="ml-4"><i class="fas fa-angle-double-right"></i> 3</h6>
+                                <h5 class="prekidac"><i class="fas fa-toggle-on" onclick="togglePrikaz('mobilni');"></i></h5>
+                            </div>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <h6>Na moru</h6>
+                            <div class="d-flex justify-content-between align-items-center w-50">
+                                <h6 class="ml-4"><i class="fas fa-angle-double-right"></i> 3</h6>
+                                <h5 class="prekidac"><i class="fas fa-toggle-on" onclick="togglePrikaz('more');"></i></h5>
+                            </div>
+                        </li>
+                        <li class="d-flex justify-content-between align-items-center">
+                            <h6>Ukupno</h6>
+                            <div class="d-flex justify-content-between align-items-center w-50">
+                                <h6 class="ml-4"><i class="fas fa-angle-double-right"></i> 8</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>                   
+        </nav>
+    
+        <!-- Page Content -->
+        <div id="content">
+                
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid justify-content-between">
+                    <div class="d-flex align-items-center">                
+                        <!-- Gumb za sidebar -->
+                        <button class="btn btn-dark" type="button" id="sidebarCollapse" >
+                            <span><i class="fas fa-exchange-alt"></i></span>
+                        </button>
+
+                        <a class="navbar-brand ml-3 ml-md-5" href="#">
+                            <h1 id="brand"><i class="fas fa-map-marker-alt"></i> <span>AVD</span><span class="d-none d-md-inline-block">registar</span></h1>
+                        </a>
+
+                        <!-- Button trigger modal -->
+                        <button class="btn btn-light ml-md-5" type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                            <img id="navbarKarta" src="cro.png"> <span class="font-weight-bold d-none d-md-inline-block">Županije</span> <i class="fas fa-caret-down"></i>
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">AVD Lokacije</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <strong>HR</strong>
+                                                <span class="badge badge-info badge-pill">268</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Zagrebačka
+                                                <span class="badge badge-dark badge-pill">2</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Krapinsko-zagorska
+                                                <span class="badge badge-dark badge-pill">1</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Sisačko-moslavačka
+                                                <span class="badge badge-dark badge-pill">14</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Karlovačka
+                                                <span class="badge badge-dark badge-pill">2</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Varaždinska
+                                                <span class="badge badge-dark badge-pill">1</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Koprivničko-križevačka
+                                                <span class="badge badge-dark badge-pill">14</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Bjelovarsko-bilogorska
+                                                <span class="badge badge-dark badge-pill">2</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Primorsko-goranska
+                                                <span class="badge badge-dark badge-pill">1</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Virovitičko-podravska
+                                                <span class="badge badge-dark badge-pill">14</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Požeško-slavonska
+                                                <span class="badge badge-dark badge-pill">2</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Brodsko-posavska
+                                                <span class="badge badge-dark badge-pill">1</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Zadarska
+                                                <span class="badge badge-dark badge-pill">14</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Osječko-baranjska
+                                                <span class="badge badge-dark badge-pill">2</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Šibensko-kninska
+                                                <span class="badge badge-dark badge-pill">1</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Vukovarsko-srijemska
+                                                <span class="badge badge-dark badge-pill">14</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Splitsko-dalmatinska
+                                                <span class="badge badge-dark badge-pill">2</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Istarska
+                                                <span class="badge badge-dark badge-pill">1</span>
+                                            </li>    
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Dubrovačko-neretvanska
+                                                <span class="badge badge-dark badge-pill">14</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Međimurska
+                                                <span class="badge badge-dark badge-pill">2</span>
+                                            </li>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                Grad Zagreb
+                                                <span class="badge badge-dark badge-pill">1</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <img class="img-thumbnail" src="hr_flag.png"> <img class="img-thumbnail" src="eng_flag.png">
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div id="box" class="alert alert-warning alert-dismissible fade show" role="alert">
+                <div class="d-flex justify-content-start flex-column flex-lg-row">
+                    <ul class="list-unstyled text-dark">
+                        <li class="d-md-inline mr-lg-3"> 
+                            <strong><i class="fa fa-info-circle" aria-hidden="true"></i> Automatski vanjski defibrilator </strong>
+                        </li>                     
+                            <strong>Adresa:</strong> Neka Ulica 7, 10000 Zagreb
+                        <li class="d-md-inline"> 
+                            <strong>Zemljopisna širina:</strong> 45.812900
+                        </li>
+                        <li class="d-md-inline"> 
+                            <strong>Zemljopisna dužina:</strong> 15.975291
+                        </li>  
+                    </ul>
+                    <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                </div>
+             </div>
+       
+            <div id="map"></div>
+
+        </div>
+    </div>       
+   
+    <script type="text/javascript">
+        var podaci = <%- JSON.stringify(rezultat) %>;
+    </script>
+    
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Moj JS -->
+    <script type="text/javascript" src="karta.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDulnEDf6Xk063aGmC91t01C9u8RnI2Bts&callback=initMap&language=hr&region=HR" async defer></script>
+</body>
+
+</html>
