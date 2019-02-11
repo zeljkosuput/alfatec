@@ -5,14 +5,13 @@ app.use(express.static("script"));
 app.use(express.static("img"));
 var mysql = require("mysql");
 var connection = mysql.createConnection({
-    host: "eu-cdbr-west-02.cleardb.net",
-    user: "b8346244e11f19",
-    password: "a98e2058",
-    database: "heroku_1bf6e48e5fa9411"
+    host: "localhost",
+    user: "root",
+    password: "nodeJS220!",
+    database: "karta"
 });
 var port = process.env.PORT || 3000;
 
-// mysql://b8346244e11f19:a98e2058@eu-cdbr-west-02.cleardb.net/heroku_1bf6e48e5fa9411?reconnect=true
 
 app.get("/", function(req, res){
     connection.query("SELECT * FROM tablica1", function(err, rezultat){
@@ -20,6 +19,8 @@ app.get("/", function(req, res){
         res.render("index.ejs", {rezultat: rezultat});
     });
 });
+
+
 
 app.listen(port, function(){
     
