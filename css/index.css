@@ -10,11 +10,10 @@
     font-size: 0.9rem;
 }
 
-/* html, body {
-    
-    width: -webkit-calc(100% - 0px);
-    height: calc(100vh - var(--vh-offset, 0px));
-} */
+#brand {
+    margin: 0;
+    border: 0;
+}
 
 .alert.on{
    width: calc(100% - 250px);
@@ -24,7 +23,6 @@
     margin: 0;
     padding-left: 3vw;
     padding-right: 3vw;
-    
 }
 
 .wrapper{
@@ -55,10 +53,12 @@
 }
 
 .navbar {
-    height: 10%;
+    height: 10vh;
     width: 100%;
     border-bottom: 1px solid #bfbfbf;
     z-index: 9998;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 #map {
@@ -103,8 +103,15 @@
 }
 
 .navbar img {
-    height: 35px;
-    width: 35px;
+    max-height: 4vh;
+    width: auto;
+    margin-left: 3px;
+    margin-right: 3px;
+    border-radius: 4px;
+}
+
+.zastave img {
+    border: 1px solid #343a40;
 }
 
 #logo {
@@ -112,10 +119,6 @@
     max-height: 15vh;
     margin-top: 10px;
     margin-bottom: 15px;
-}
-
-.meni {
-    margin-bottom: 10%;
 }
 
 .list-group li {
@@ -133,8 +136,8 @@
     }
 
     .alert.on{
-        width: 100%;
-     }
+        width: 100vh;
+    }
 }
 
 @media (max-width: 576px) {
@@ -148,6 +151,10 @@
 }
 
 @media (max-width: 320px) {
+    html {
+        font-size: 14px;
+    }
+
     #sidebar {
         min-width: 190px;
         max-width: 190px;
@@ -164,15 +171,6 @@
 
     #brand {
         font-size: 1.4rem;
-    }
-
-    .navbar img {
-        height: 30px;
-        width: 30px;
-    }
-
-    html {
-        font-size: 14px;
     }
 
     .meni-header {
