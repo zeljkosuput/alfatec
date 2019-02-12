@@ -5,11 +5,11 @@ app.use(express.static("script"));
 app.use(express.static("img"));
 var mysql = require("mysql");
 var connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "nodeJS220!",
-    database: "karta"
-});;
+    host: "eu-cdbr-west-02.cleardb.net",
+    user: "b8346244e11f19",
+    password: "a98e2058",
+    database: "heroku_1bf6e48e5fa9411"
+});
 
 var port = process.env.PORT || 3000;
 
