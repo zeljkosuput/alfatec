@@ -2,7 +2,7 @@ function initMap() {
   
   var opcijeKarte = {
     center: new google.maps.LatLng(45.809992, 15.978466), 
-    zoom: 12,
+    zoom: 11,
     streetViewControl: false,
     fullscreenControl: false,
     mapTypeControlOptions: {
@@ -135,8 +135,53 @@ function initMap() {
     $(".alert").hide();
     // $(".alert").remove();
   });
+
+  
+  // load zupanije iz fajla
+  document.getElementById("splitskodalmatinska").addEventListener("click", function(){
+
+    var karta = $.ajax({
+      url:"SplitskoDalmatinska.json",
+      dataType: "json",
+      error: function (xhr) {
+        alert(xhr.statusText)
+      }
+    });
+
+    $.when(karta).done(function() {
+      var parsedData = JSON.parse(karta.responseText);
+      var polygon = turf.polygon(parsedData["features"][0]["geometry"]["coordinates"][0]);
+      var jsonCenter = turf.centerOfMass(polygon);
+      var centerPoint = jsonCenter["geometry"]["coordinates"];
+      map.setCenter({lat:centerPoint[1], lng:centerPoint[0]}); 
+      map.setZoom(8);
+
+      map.data.loadGeoJson("SplitskoDalmatinska.json");
+    });
+    
+  });
  
+  // JSON karta pocetak
+  map.data.loadGeoJson("Hr.json");
+  map.data.setStyle(function(feature) {
+    var zupanijaPrisutna = feature.getProperty("zupanija");
+    var strokeBoja = "#abacad";
+
+    if (zupanijaPrisutna == "da") {
+      strokeBoja = "#26b536";
+    }
+    
+    return {
+      strokeColor: strokeBoja,
+      strokeWeight: 2,
+      strokeOpacity: 1,
+      fillOpacity: 0
+    } 
+  });
+  // JSON karta kraj
+
 };
+
 
 
 function toggleBounce() {
@@ -221,5 +266,4 @@ Array.from(prekidaci).forEach(function (prekidac) {
 });
 
   
-
 
