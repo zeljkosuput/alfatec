@@ -157,6 +157,8 @@ function initMap() {
       map.setZoom(8);
 
       map.data.loadGeoJson("SplitskoDalmatinska.json");
+
+      $("#exampleModalCenter").modal("toggle");
     });
     
   });
