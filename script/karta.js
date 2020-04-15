@@ -98,18 +98,18 @@ function initMap() {
 
   var image = {
     fixni: {
-      url: "avd_ikona.png",
-      scaledSize: new google.maps.Size(35, 35),
+      url: "qualys.png",
+      scaledSize: new google.maps.Size(40, 40),
       anchor: new google.maps.Point(25, 50)
     },
     mobilni: {
-      url: "kamion_ikona.png",
-      scaledSize: new google.maps.Size(50, 50),
+      url: "ncipher.png",
+      scaledSize: new google.maps.Size(40, 40),
       anchor: new google.maps.Point(25, 50)
     },
     more: {
-      url: "brod_ikona.png",
-      scaledSize: new google.maps.Size(50, 50),
+      url: "nlegion.png",
+      scaledSize: new google.maps.Size(40, 40),
       anchor: new google.maps.Point(25, 50)
     }
   };
