@@ -6,10 +6,10 @@ app.use(express.static("img"));
 app.use(express.static("zupanije"));
 var mysql = require("mysql");
 var connection = mysql.createConnection({
-    host: "eu-cdbr-west-02.cleardb.net",
-    user: "b8346244e11f19",
-    password: "a98e2058",
-    database: "heroku_1bf6e48e5fa9411"
+    host: "eu-cdbr-west-03.cleardb.net",
+    user: "b8902d98960762",
+    password: "b5a62eba",
+    database: "heroku_98cc2bd9cae74dc"
 });
 
 // var connection = mysql.createConnection({
